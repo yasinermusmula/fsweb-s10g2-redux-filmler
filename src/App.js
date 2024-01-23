@@ -2,16 +2,20 @@ import React from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import MovieList from './components/MovieList';
-import Movie from './components/Movie';
+import MovieList from "./components/MovieList";
+import Movie from "./components/Movie";
 
-import AppHeader from './components/AppHeader';
+import AppHeader from "./components/AppHeader";
 
-import AddMovieForm from './components/AddMovieForm';
-import FavoriteMovieList from './components/FavoriteMovieList';
+import AddMovieForm from "./components/AddMovieForm";
+import FavoriteMovieList from "./components/FavoriteMovieList";
 
-const App = props => {
-  const displayFavorites = true;
+import { useSelector } from "react-redux";
+
+const App = (props) => {
+  const displayFavorites = useSelector(
+    (state) => state.favorites.displayFavorites
+  );
 
   return (
     <div>
